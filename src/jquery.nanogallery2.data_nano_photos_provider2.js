@@ -186,7 +186,11 @@
             // newItem.downloadURL=item.download;
             newItem.downloadURL=baseURL+JsonConvertCharset(item.originalURL);
           }
-          
+
+	      // custom data
+	      if( item.customData !== null ) {
+		      newItem.customData=item.customData;
+	      }
           
           // retrieve responsive thumbnails urls and sizes
           var cnl=G.GOM.curNavLevel;

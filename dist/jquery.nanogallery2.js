@@ -1,4 +1,4 @@
-/* nanogallery2 - v1.4.0 - 2017-07-06 - http://nanogallery2.nanostudio.org */
+/* nanogallery2 - v1.4.0.1 - 2017-07-26 - http://nanogallery2.nanostudio.org */
 /**!
  * @preserve nanogallery2 - javascript image gallery
  * Homepage: http://nanogallery2.nanostudio.org
@@ -12514,7 +12514,11 @@ if (typeof define === 'function' && define.amd) {
             // newItem.downloadURL=item.download;
             newItem.downloadURL=baseURL+JsonConvertCharset(item.originalURL);
           }
-          
+
+	      // custom data
+	      if( item.customData !== null ) {
+		      newItem.customData=item.customData;
+	      }
           
           // retrieve responsive thumbnails urls and sizes
           var cnl=G.GOM.curNavLevel;
