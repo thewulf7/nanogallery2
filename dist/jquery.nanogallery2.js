@@ -1,4 +1,4 @@
-/* nanogallery2 - v1.4.0.1 - 2017-07-26 - http://nanogallery2.nanostudio.org */
+/* nanogallery2 - v1.4.0 - 2017-07-27 - http://nanogallery2.nanostudio.org */
 /**!
  * @preserve nanogallery2 - javascript image gallery
  * Homepage: http://nanogallery2.nanostudio.org
@@ -1400,14 +1400,21 @@
 
       // unselect everything & remove link to album (=logical delete)
       var l=G.I.length;
+      var elems = [];
       for( var i=0; i < l ; i++ ) {
         var item=G.I[i];
         if( item.albumID == albumID ) {
           item.selected = false;
         }
+        if(item.albumID == '-1') {
+          elems[i] = item;
+        }
       }
-      
-      G.I[albumIdx].contentIsLoaded = false;
+
+      G.I = elems;
+      G.GOM.items = [];
+
+	  G.I[albumIdx].contentIsLoaded = false;
       
       DisplayAlbum('-1', albumID);
     };
